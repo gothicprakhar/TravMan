@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/testapi', function () {
+    return response()->json(['name' => 'TravMan', 'text' => 'Hello']);
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
