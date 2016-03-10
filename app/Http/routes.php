@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.dashboard');
+});
+
+Route::get('/profile', function () {
+    return view('pages.profile');
 });
 
 Route::post('/testapi', function () {
