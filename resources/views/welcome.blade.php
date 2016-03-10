@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Material Admin</title>
+        <title>Dashboard</title>
 
         <!-- Vendor CSS -->
         <link href="{{URL::to('assets')}}/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="logo hidden-xs">
-                    <a href="index.html">Material Admin</a>
+                    <a href="index.html">Trav Man</a>
                 </li>
 
                 <li class="pull-right">
@@ -312,7 +312,7 @@
                         </div>
 
                         <div class="profile-info">
-                            Malinda Hollaway
+                            Prakhar Agrawal
 
                             <i class="zmdi zmdi-caret-down"></i>
                         </div>
@@ -1186,7 +1186,7 @@
         </section>
 
         <footer id="footer">
-            Copyright &copy; 2015 Material Admin
+            Copyright &copy; 2016 TravMan
 
             <ul class="f-menu">
                 <li><a href="">Home</a></li>
