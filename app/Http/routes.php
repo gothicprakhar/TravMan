@@ -19,8 +19,8 @@ Route::get('/profile', function () {
     return view('pages.profile');
 });
 
-Route::post('/testapi', function () {
-    return response()->json(['name' => 'TravMan', 'text' => 'Hello']);
+Route::get('asd', function () {
+    return view('auth.login');
 });
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +35,10 @@ Route::post('/testapi', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });
