@@ -19,9 +19,6 @@ Route::get('/profile', function () {
     return view('pages.profile');
 });
 
-Route::get('asd', function () {
-    return view('auth.login');
-});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -34,7 +31,9 @@ Route::get('asd', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('asd', function () {
+        return view('auth.login');
+    });
 });
 
 Route::group(['middleware' => 'web'], function () {
