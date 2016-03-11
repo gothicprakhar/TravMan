@@ -31,7 +31,7 @@
                 </li>
 
                 <li class="logo hidden-xs">
-                    <a href="index.html">Trav Man</a>
+                     <a href="{{URL::to('/')}}">Trav-Man</a>
                 </li>
 
                 <li class="pull-right">
@@ -43,9 +43,7 @@
                             </div>
                         </li>
 
-                        <li id="top-search">
-                            <a href=""><i class="tm-icon zmdi zmdi-search"></i></a>
-                        </li>
+
 
                         <li class="dropdown">
                             <a data-toggle="dropdown" href="">

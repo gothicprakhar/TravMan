@@ -108,7 +108,7 @@
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="lv-title">Bill Phillips</div>
-                                                    <small class="lv-small">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
+                                                    <small class="lv-small">Proin laoreet commodo eros id faucibus. Donec ligula ante placerat</small>
                                                 </div>
                                             </div>
                                         </a>

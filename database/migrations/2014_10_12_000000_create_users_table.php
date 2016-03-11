@@ -8,7 +8,7 @@ class CreateUsersTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @retun void
      */
     public function up()
     {
@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('user_name')->unique();
             $table->string('email')->unique();
+
             $table->string('password');
             $table->string('gender');
             $table->string('address');
@@ -28,7 +29,11 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
 
+
         });
+
+
+
     }
 
     /**
