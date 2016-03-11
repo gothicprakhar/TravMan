@@ -13,7 +13,9 @@ class CreateMemberTable extends Migration
     public function up()
     {
         Schema::create('member', function (Blueprint $table) {
+
             $table->increments('id');
+
             $table->integer('member_id')->unsigned();
             $table->integer('permission_id')->unsigned();
             $table->timestamps();
