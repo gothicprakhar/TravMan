@@ -11,13 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::post('/testapi', function () {
-    return response()->json(['name' => 'TravMan', 'text' => 'Hello']);
-});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -28,7 +21,29 @@ Route::post('/testapi', function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+Route::get('mail','HomeController@f');
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('dashboard', function () {
+            return view('pages.dashboard');
+        });
+
+        Route::get('profile', function () {
+            return view('pages.profile');
+        });
+
+        Route::get('booking', function () {
+            return view('booking',['save' => '']);
+        });
+
+
+    });
+    Route::post('booked', 'BookingController@booked');
 });

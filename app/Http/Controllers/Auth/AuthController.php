@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\CountNotification;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'dashboard';
 
     /**
      * Create a new authentication controller instance.
@@ -38,6 +39,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+
     }
 
     /**
@@ -49,9 +51,13 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name' => 'required|max:30|alpha_spaces',
+            'user_name' => 'required|unique:users',
+            'email' => 'required|email|max:50|unique:users',
             'password' => 'required|confirmed|min:6',
+            'gender' => 'required',
+            'address' => 'required',
+            'phone' => 'required|digits:10',
         ]);
     }
 
@@ -63,10 +69,22 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $count = new CountNotification;
+        $count->id = 'travman1.com';
+        $count->count = '0';
+        $count->save();
+
         return User::create([
+            'uid' => 'travman1.com',
             'name' => $data['name'],
+            'user_name' => $data['user_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'gender' => $data['gender'],
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'active_flag' => '1',
+            'role' => 'admin',
         ]);
     }
 }
