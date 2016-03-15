@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->integer('booking_id');  //id of booking
             $table->string('name');
             $table->string('email');
+            $table->string('booking_date');
             $table->timestamps();
         });
     }

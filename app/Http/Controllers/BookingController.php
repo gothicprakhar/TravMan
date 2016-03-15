@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
+use Auth;
+
+use Carbon\Carbon;
+
 use App\Booking;
 use App\CountNotification;
 use App\Notification;
-use Auth;
-//use Request;
 
 class BookingController extends Controller
 {
@@ -19,7 +22,6 @@ class BookingController extends Controller
             'email' => 'required|email',
             'phone' => 'required|digits:10',
             'pname' => 'required',
-            'package_det' => 'required',
             'idate' => 'required',
             'budget' => 'required'
         ]);
@@ -30,9 +32,9 @@ class BookingController extends Controller
         $booking->email = $request->email;
         $booking->phone_no = $request->phone;
         $booking->package_name = $request->pname;
-        $booking->package_det = $request->package_det;
         $booking->date_of_interest = $request->idate;
         $booking->estimate_budget = $request->budget;
+        $booking->date_of_booking = Carbon::parse(Carbon::now()->format('Y-m-d'));
         $booking->save();
 
         //update notification count
@@ -47,6 +49,7 @@ class BookingController extends Controller
         $notice->booking_id = $booking->id;
         $notice->name = $booking->name;
         $notice->email = $booking->email;
+        $notice->booking_date = $booking->date_of_booking;
         $notice->save();
 
         return view('booking',['save' => 'Booking Has Been Registered']);

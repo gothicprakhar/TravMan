@@ -21,7 +21,7 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-Route::get('mail','HomeController@f');
+
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
@@ -43,7 +43,16 @@ Route::group(['middleware' => 'web'], function () {
             return view('booking',['save' => '']);
         });
 
+        Route::get('create', function () {
+            return view('pages.member_register', ['save' => '']);
+        });
 
+        Route::get('show', 'AllBookingController@show');
+                   /*function () {
+            return view('pages.data_table');
+        });*/
     });
     Route::post('booked', 'BookingController@booked');
+
+    Route::post('save', 'MemberController@registerMember');
 });

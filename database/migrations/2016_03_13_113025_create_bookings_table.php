@@ -18,9 +18,9 @@ class CreateBookingsTable extends Migration
             $table->string('email');
             $table->string('phone_no');
             $table->string('package_name');
-            $table->string('package_det');
             $table->string('date_of_interest');
             $table->string('estimate_budget');
+            $table->string('date_of_booking');
             $table->timestamps();
         });
     }

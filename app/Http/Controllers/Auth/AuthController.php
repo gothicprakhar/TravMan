@@ -70,12 +70,12 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $count = new CountNotification;
-        $count->id = 'travman1.com';
+        $count->id = 'travman.com';
         $count->count = '0';
         $count->save();
 
         return User::create([
-            'uid' => 'travman1.com',
+            'uid' => 'travman.com',
             'name' => $data['name'],
             'user_name' => $data['user_name'],
             'email' => $data['email'],
@@ -87,4 +87,6 @@ class AuthController extends Controller
             'role' => 'admin',
         ]);
     }
+
+
 }
